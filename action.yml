@@ -1,0 +1,42 @@
+name: Git Version
+author: "Codacy"
+description: 'Semver versioning based on the git history and commit messages of your repository.'
+branding:
+  icon: 'git-branch'
+  color: 'gray-dark'
+inputs:
+  release-branch:
+    description: 'The name of the release branch'
+    default: main
+  dev-branch:
+    description: 'The name of the dev branch'
+    default: dev
+  minor-identifier:
+    description: 'The string or regex to identify a minor release commit'
+    default: '/^feat(\([^)]*\))?:/'
+  major-identifier:
+    description: 'The string or regex to identify a major release commit'
+    default: '/([a-z]+(\([^)]*\))?!|breaking[ -]change):/'
+  skip-prerelease:
+    description: 'Skip prerelease part of the version. When true, release-branch and dev-branch are effectively ignored'
+    default: 'false'
+  prefix:
+    description: 'The prefix to use in the version'
+    default: ''
+  hash-prefix:
+    description: 'The string placed before the short commit SHA in prerelease versions'
+    default: g
+  log-paths:
+    description: 'The paths to be used to calculate changes (comma-separated)'
+    default: ./
+  summary:
+    description: 'Write the calculated version to the job summary'
+    default: 'true'
+outputs:
+  version:
+    description: 'The value of the new pre-calculated tag'
+  previous-version:
+    description: 'Contains the value of previous tag, before calculating a new one'
+runs:
+  using: node24
+  main: dist/index.js
