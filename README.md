@@ -104,3 +104,7 @@ npm run build
 ```
 
 `dist/index.js` is what the action runs and must be committed, so run `npm run build` after changing anything in `src/`.
+
+## License
+
+This project is released under the [Apache License 2.0](LICENSE).

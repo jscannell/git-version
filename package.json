@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Semver versioning based on the git history and commit messages of your repository.",
   "private": true,
+  "license": "Apache-2.0",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "esbuild src/main.ts --bundle --platform=node --target=node24 --outfile=dist/index.js",
